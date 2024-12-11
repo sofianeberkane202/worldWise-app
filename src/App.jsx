@@ -2,9 +2,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import HomePage from "./pages/HomePage"
 <<<<<<< HEAD
 import ProductsPage from "./pages/ProductsPage"
+<<<<<<< Updated upstream
 =======
 import PricingPage from "./pages/PricingPage"
->>>>>>> pricingPage
+>>>>>>> Stashed changes
 
 /* eslint-disable react/react-in-jsx-scope */
 export default function App(){
@@ -14,9 +15,10 @@ export default function App(){
       <Route path="/" element= {<HomePage/>} />
 <<<<<<< HEAD
       <Route path="/product" element={<ProductsPage/>}/>
+<<<<<<< Updated upstream
 =======
       <Route path='/pricing' element= {<PricingPage/>}/>
->>>>>>> pricingPage
+>>>>>>> Stashed changes
     </Routes>
    </BrowserRouter> 
   )

@@ -1,5 +1,7 @@
 import NavBar from '../components/NavBar'
 import styles from './PricingPage.module.css'
+import stylesContent from '../components/Content.module.css';
+import Content from '../components/Content'
 /* eslint-disable react/react-in-jsx-scope */
 function PricingPage() {
     return (
@@ -7,8 +9,8 @@ function PricingPage() {
             {/* navBar */}
             <NavBar/>
             {/* content */}
-            <div className={`${styles.content} flex flex-center-y flex-center-x`}>
-                <div>
+            <Content>
+                <div className={stylesContent.text}>
                     <h2>
                         Simple pricing.<br/>
                         Just $9/month.
@@ -20,15 +22,15 @@ function PricingPage() {
                     </p>
                 </div>
 
-                <div className={`${styles.image} flex-1 flex flex-end-x`}>
+                <div className={`${stylesContent.image} flex-1 flex flex-end-x`}>
                     <img 
                     src='../../public/img-2.jpg' 
                     alt='paricing image'
-                    width={500}
-                    height={500}
+                    width={450}
+                    height={450}
                     />
                 </div>
-            </div>
+            </Content>
         </div>
     )
 }

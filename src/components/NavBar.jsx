@@ -14,14 +14,12 @@ function NavBar() {
             </Link>
             {/* list */}
             <ul className="flex flex-between flex-center-y">
-                <li>Pricing</li>
                 <li>
                     <NavLink to={'/product'}>Products</NavLink>
                 </li>
                 <li>
                     <NavLink to={'/pricing'}>Pricing</NavLink>
                 </li>
-                <li>Products</li>
                 <li>
                     <Button type='primary'>Login</Button>
                 </li>
