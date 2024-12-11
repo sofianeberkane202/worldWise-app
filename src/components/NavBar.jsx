@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom"
 import Button from "./Button"
 import Logo from "./Logo"
 import styles from "./NavBar.module.css"
@@ -15,17 +14,14 @@ function NavBar() {
             </Link>
             {/* list */}
             <ul className="flex flex-between flex-center-y">
-<<<<<<< HEAD
                 <li>Pricing</li>
                 <li>
                     <NavLink to={'/product'}>Products</NavLink>
                 </li>
-=======
                 <li>
                     <NavLink to={'/pricing'}>Pricing</NavLink>
                 </li>
                 <li>Products</li>
->>>>>>> pricingPage
                 <li>
                     <Button type='primary'>Login</Button>
                 </li>
