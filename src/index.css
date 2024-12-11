@@ -12,6 +12,8 @@
 
     --gap: 4px;
     --padding-box: 30px 50px;
+    --padding-inline-box: 50px;
+    --padding-block-box: 30px;
 }
 
 *,*::after,*::before{
