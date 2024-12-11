@@ -12,6 +12,8 @@
 
     --gap: 4px;
     --padding-box: 30px 50px;
+    --padding-inline-box: 50px;
+    --padding-block-box: 30px;
 }
 
 *,*::after,*::before{
@@ -21,6 +23,15 @@
 }
 
 li{list-style: none;}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+a.active:active, a.active:visited{
+    color: var(--color-brand--2);
+}
 
 button{
     background: none;

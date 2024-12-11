@@ -16,3 +16,7 @@
 .flex-between{justify-content: space-between;}
 
 .flex-1{flex: 1;}
+
+.flex-end-x{
+    justify-content: flex-end;
+}
