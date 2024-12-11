@@ -3,6 +3,8 @@
     gap: var(--gap);
 }
 
+.flex-col {flex-direction: column;}
+
 .flex-center-y{
     align-items: center;
 }
@@ -12,3 +14,5 @@
 }
 
 .flex-between{justify-content: space-between;}
+
+.flex-1{flex: 1;}

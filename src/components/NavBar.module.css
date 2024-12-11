@@ -1,5 +1,7 @@
 .nav{
+height: 60px;
 }
+
 
 .nav ul{
     flex-basis: 400px;

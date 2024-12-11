@@ -8,4 +8,37 @@
     background-position: center;
     color: #fff;
     padding: var(--padding-box);
+    gap: 24px;
+    position: relative;
+}
+
+.homePage .content{
+    /* max-width: 950px; */
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-40%);
+    flex: 1;
+    gap: 12px;
+}
+
+.homePage h1{
+    font-size: 5.5rem;
+    text-align: center;
+    line-height: 1.4;
+    width: 90%;
+}
+
+.homePage h1 span{
+    display: block;
+}
+
+.homePage p{
+    color: var(--color-light--1);
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    width: 90%;
+    margin-block: 18px 32px;
 }
