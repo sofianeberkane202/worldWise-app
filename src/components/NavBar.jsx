@@ -11,11 +11,16 @@ function NavBar() {
             <Logo/>
             {/* list */}
             <ul className="flex flex-between flex-center-y">
-                <li>Pricing</li>
                 <li>
                     <NavLink to={'/product'}>Products</NavLink>
                 </li>
                 <li>
+<<<<<<< Updated upstream
+=======
+                    <NavLink to={'/pricing'}>Pricing</NavLink>
+                </li>
+                <li>
+>>>>>>> Stashed changes
                     <Button type='primary'>Login</Button>
                 </li>
             </ul>
