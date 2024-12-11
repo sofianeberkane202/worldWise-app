@@ -1,3 +1,5 @@
+@import url(./globalStyle/flex.css);
+
 :root {
     --color-brand--1: #ffb545;
     --color-brand--2: #00c46a;
@@ -7,6 +9,9 @@
     --color-light--1: #aaa;
     --color-light--2: #ececec;
     --color-light--3: #d6dee0;
+
+    --gap: 4px;
+    --padding-box: 30px 50px;
 }
 
 *,*::after,*::before{
@@ -15,12 +20,19 @@
     box-sizing: border-box;
 }
 
+li{list-style: none;}
+
+html{
+    font-size: 10px;
+}
+
 body{
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: Manrope, sans-serif;
+    font-size: 1.6rem;
     color: var(--color-light--2);
     font-weight: 400;
     line-height: 1.6;
