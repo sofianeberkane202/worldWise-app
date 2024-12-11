@@ -1,3 +1,4 @@
+import Button from "./Button"
 import Logo from "./Logo"
 import styles from "./NavBar.module.css"
 
@@ -11,7 +12,9 @@ function NavBar() {
             <ul className="flex flex-between flex-center-y">
                 <li>Pricing</li>
                 <li>Products</li>
-                <li>Login</li>
+                <li>
+                    <Button type='primary'>Login</Button>
+                </li>
             </ul>
         </div>
     )

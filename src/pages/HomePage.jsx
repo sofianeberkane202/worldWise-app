@@ -1,5 +1,6 @@
 import NavBar from '../components/NavBar';
 import styles from './HomePage.module.css';
+import Button from '../components/Button';
 /* eslint-disable react/react-in-jsx-scope */
 function HomePage() {
     return (
@@ -24,7 +25,7 @@ function Content(){
                 think of. Never forget your wonderful experiences, and show your
                 friends how you have wandered the world.
             </p>
-            <button>start tracking now</button>
+            <Button type='primary'>start tracking now</Button>
          </div>
     )
 }
