@@ -1,8 +1,13 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import HomePage from "./pages/HomePage"
+
 /* eslint-disable react/react-in-jsx-scope */
 export default function App(){
   return (
-    <div>
-      <h1>sofiane</h1>
-    </div>
+   <BrowserRouter>
+    <Routes>
+      <Route path="/" element= {<HomePage/>} />
+    </Routes>
+   </BrowserRouter> 
   )
 }
