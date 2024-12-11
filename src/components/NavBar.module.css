@@ -1,0 +1,13 @@
+.nav{
+}
+
+.nav ul{
+    flex-basis: 400px;
+}
+
+.nav li{
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-variant: small-caps;
+}
