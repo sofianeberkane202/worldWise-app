@@ -22,6 +22,15 @@
 
 li{list-style: none;}
 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+a.active:active, a.active:visited{
+    color: var(--color-brand--2);
+}
+
 button{
     background: none;
     color: inherit;
