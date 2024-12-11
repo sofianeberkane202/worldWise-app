@@ -4,3 +4,7 @@
     padding: var(--padding-box);
     background-color: var(--color-dark--0);
 }
+
+.products .content{
+    margin-top: 32px;
+}
