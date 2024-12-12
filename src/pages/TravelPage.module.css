@@ -2,14 +2,31 @@
     width: 100%;
     height: 100%;
     padding: var(--padding-box);
-    background-color: var(--color-dark--0);
+    background-color: var(--color-dark--1);
 }
 
 .travel .sideBar{
     /* background-color: red; */
+    gap: 32px;
 }
 
 
 .travel .map{
     background-color: white;
+}
+
+.controlers {
+    background-color: var(--color-dark--2);
+    border-radius: 8px;
+}
+
+.controlers a {
+    display: inline-block;
+    padding: 5px 10px;
+    font-weight: 600;
+}
+
+.travel .active{
+    background-color: var(--color-dark--0);
+    border-radius: 8px;
 }
