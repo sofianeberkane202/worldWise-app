@@ -18,6 +18,8 @@ export default function App(){
       <Route path="/login" element={<LoginPage/>} />
       <Route path="/travel" element={<TravelPage/>}>
 
+      <Route index element={<Cities/>}/>
+
         <Route path="cities" element={<Cities/>}/>
         <Route path="countries" element={<Countries/>}/>
 

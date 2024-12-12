@@ -1,18 +1,19 @@
 .travel{
     width: 100%;
     height: 100%;
-    padding: var(--padding-box);
     background-color: var(--color-dark--1);
 }
 
 .travel .sideBar{
     /* background-color: red; */
     gap: 32px;
+    padding: var(--padding-block-box);
+    flex-basis: 500px;
 }
 
 
 .travel .map{
-    background-color: white;
+    background-color: blue;
 }
 
 .controlers {
@@ -29,4 +30,10 @@
 .travel .active{
     background-color: var(--color-dark--0);
     border-radius: 8px;
+}
+
+@media(max-width: 1200px){
+    .travel .sideBar{
+        flex: 1;
+    }
 }
