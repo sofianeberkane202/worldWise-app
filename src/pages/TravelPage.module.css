@@ -1,0 +1,15 @@
+.travel{
+    width: 100%;
+    height: 100%;
+    padding: var(--padding-box);
+    background-color: var(--color-dark--0);
+}
+
+.travel .sideBar{
+    /* background-color: red; */
+}
+
+
+.travel .map{
+    background-color: white;
+}

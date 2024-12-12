@@ -1,6 +1,6 @@
 import NavBar from '../components/NavBar';
 import styles from './HomePage.module.css';
-import Button from '../components/Button';
+import { Link } from 'react-router-dom';
 /* eslint-disable react/react-in-jsx-scope */
 function HomePage() {
     return (
@@ -25,7 +25,7 @@ function Content(){
                 think of. Never forget your wonderful experiences, and show your
                 friends how you have wandered the world.
             </p>
-            <Button type='primary'>start tracking now</Button>
+            <Link to={'/travel'} className='btn primary'>start tracking now</Link>
          </div>
     )
 }
