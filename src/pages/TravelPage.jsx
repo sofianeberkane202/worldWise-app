@@ -7,7 +7,7 @@ function TravelPage() {
     return (
         <div className={`${styles.travel} flex`}>
             {/* side bar */}
-            <div className={`${styles.sideBar} flex-1 flex flex-col flex-center-y`}>
+            <div className={`${styles.sideBar} flex flex-col flex-center-y`}>
                 <Logo/>
                 
                 <div className={styles.controlers}>

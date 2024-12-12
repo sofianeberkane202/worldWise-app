@@ -42,3 +42,13 @@
     width: 90%;
     margin-block: 18px 32px;
 }
+
+@media(max-width: 992px){
+    .homePage h1{
+        font-size: 4rem;
+    }
+
+    .homePage p{
+        font-size: 2rem;
+    }
+}

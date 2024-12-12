@@ -25,7 +25,7 @@ function Content(){
                 think of. Never forget your wonderful experiences, and show your
                 friends how you have wandered the world.
             </p>
-            <Link to={'/travel'} className='btn primary'>start tracking now</Link>
+            <Link to={'/travel/cities'} className='btn primary'>start tracking now</Link>
          </div>
     )
 }
