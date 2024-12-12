@@ -33,7 +33,7 @@ a.active:active, a.active:visited{
     color: var(--color-brand--2);
 }
 
-button{
+button,input{
     background: none;
     color: inherit;
     font: inherit;

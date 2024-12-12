@@ -4,11 +4,11 @@ height: 60px;
 
 
 .nav ul{
-    flex-basis: 400px;
+    flex-basis: 300px;
 }
 
 .nav li{
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     text-transform: uppercase;
     font-weight: 600;
     font-variant: small-caps;

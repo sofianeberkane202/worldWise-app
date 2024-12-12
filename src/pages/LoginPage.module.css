@@ -3,5 +3,42 @@
     height: 100%;
     padding: var(--padding-box);
     background-color: var(--color-dark--0);
+    position: relative;
 }
 
+.login form {
+    background-color: var(--color-dark--2);
+    max-width: 500px;
+    width: 100%;
+    padding: 20px 24px;
+    border-radius: 8px;
+
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%,-25%);
+
+    display: grid;
+    gap: 16px;
+}
+
+.login form > div {
+    gap: 8px;
+    border-radius: inherit;
+}
+
+.login form label {
+    font-weight: 600;
+}
+
+.login form input{
+    background-color: #fff;
+    color: var(--color-dark--0);
+    padding: 8px;
+    border-radius: inherit;
+}
+
+.login form input[type='password']{
+    letter-spacing: 5px;
+    font-size: 1.4rem;
+}
