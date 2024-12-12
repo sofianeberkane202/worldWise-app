@@ -3,7 +3,7 @@ import styles from './Logo.module.css';
 function Logo() {
     return (
         <div className={`${styles.logo} flex flex-center-y`}>
-            <img src="../../public/logo.png" alt="logo"/>
+            <img src="/logo.png" alt="logo"/>
         </div>
     )
 }

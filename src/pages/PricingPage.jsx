@@ -24,7 +24,7 @@ function PricingPage() {
 
                 <div className={`${stylesContent.image} flex-1 flex flex-end-x`}>
                     <img 
-                    src='../../public/img-2.jpg' 
+                    src='/img-2.jpg' 
                     alt='paricing image'
                     width={450}
                     height={450}

@@ -10,7 +10,7 @@ function ProductsPage() {
             <Content>
                 <div className={stylesContent.image}>
                     <img 
-                    src='../../public/img-1.jpg' 
+                    src='/img-1.jpg' 
                     alt='products'
                     width={450}
                     height={450}
