@@ -1,8 +1,11 @@
 /* eslint-disable react/react-in-jsx-scope */
+import { useContext } from 'react';
 import styles from './Countries.module.css'
 import PropTypes from 'prop-types'
+import { ContextCities } from '../App';
 
-function Countries({cities}) {
+function Countries() {
+    const {cities}= useContext(ContextCities);
     return (
         <ul className={`${styles.countries}`}>
             {cities.map(country => 

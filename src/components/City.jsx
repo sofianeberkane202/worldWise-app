@@ -59,7 +59,7 @@ function City() {
                 <p className={styles.title}>Learn more</p>
                 
                 <a 
-                href={`https://en.wikipedia.org/wiki/Cold_Ashby`} 
+                href={`https://en.wikipedia.org/wiki/${cityName}`} 
                 target='_blank'>
                     {`Check out ${cityName} on Wikipedia →`}
                 </a>
