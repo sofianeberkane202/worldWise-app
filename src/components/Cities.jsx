@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom';
 import styles from './Cities.module.css'
-
+import { handleDateWithoutDay } from '../helper';
 
 
 
@@ -20,9 +20,9 @@ function Cities({cities}) {
 }
 
 function City({city}){
-    const {cityName, emoji,id} = city;
+    const {cityName, emoji,id, position:{lat,lng}, date} = city;
     return (
-        <NavLink to={`${id}`}>
+        <NavLink to={`${id}?lat=${lat}&lng=${lng}`}>
           <li className={`flex flex-center-y ${styles.city}`}>
             <p className="flex flex-center-y">
                 <span className={styles.emoji}>{emoji}</span>
@@ -36,7 +36,7 @@ function City({city}){
                 </span>
             </p>
 
-            <p className={`${styles.date} flex-1`}>(December 12, 2024)</p>
+            <p className={`${styles.date} flex-1`}>({handleDateWithoutDay(date)})</p>
 
             <button>&times;</button>
           </li>
@@ -46,11 +46,7 @@ function City({city}){
 }
 
 City.propTypes = {
-    city: PropTypes.shape({
-        emoji: PropTypes.string,
-        cityName: PropTypes.string,
-        id: PropTypes.string,
-    }).isRequired
+    city: PropTypes.object
 };
 
 Cities.propTypes = {

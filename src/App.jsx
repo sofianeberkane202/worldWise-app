@@ -8,10 +8,11 @@ import Cities from "./components/Cities"
 import Countries from './components/Countries'
 import City from "./components/City"
 import { useEffect, useState } from "react"
+import { URL } from "./config"
 
 /* eslint-disable react/react-in-jsx-scope */
 
-const URL = 'http://localhost:8000/cities';
+
 export default function App(){
 
   const [cities, setCities]= useState([]);
@@ -42,7 +43,7 @@ export default function App(){
       <Route path="/login" element={<LoginPage/>} />
       <Route path="/travel" element={<TravelPage/>}>
 
-        <Route index element={<Cities/>}/>
+        <Route index element={<Cities cities={cities}/>}/>
         <Route path="cities" element={<Cities cities={cities}/>}/>
         <Route path="cities/:id" element={<City/>} />{/* Dynamic route for city details */}
         <Route path="countries" element={<Countries cities={cities}/>}/>
