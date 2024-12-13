@@ -3,11 +3,13 @@ import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom';
 import styles from './Cities.module.css'
 import { handleDateWithoutDay } from '../helper';
+import { useContext } from 'react';
+import { ContextCities } from '../App';
 
 
 
-function Cities({cities}) {
-
+function Cities() {
+    const {cities} = useContext(ContextCities)
     return (
         <ul className={`flex flex-col ${styles.cities}`}>
             {cities.map(city => 
