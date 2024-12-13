@@ -13,6 +13,7 @@
 }
 
 :global(.leaflet-popup-content){
+    margin: 8px 24px;
     color: #fff;
     font-size: 1.4rem;
     font-weight: 600;
