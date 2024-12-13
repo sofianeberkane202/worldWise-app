@@ -61,7 +61,11 @@ function Map() {
     const position = [51.505, -0.09];
     const positions = cities["cities"].map(city => {
         const {position:{lat,lng}} = city;
-        return [+lat,+lng]
+        return {
+            position: [+lat,+lng],
+            cityName: city.cityName,
+            emoji: city.emoji,
+        }
     });
     return (
         <div className={`${styles.map} flex-1`}>
@@ -79,6 +83,7 @@ function Map() {
                     A pretty CSS3 popup. <br /> Easily customizable.
                 </Popup>
                 </Marker>
+
                 {positions.map((position,i) => 
                     <Position key={`Pos${i}`} position={position}/>)}
             </MapContainer>
@@ -88,17 +93,19 @@ function Map() {
 }
 
 function Position({position}){
+    const {position: pos, cityName , emoji} = position;
     return (
-        <Marker position={position}>
+        <Marker position={pos}>
             <Popup>
-                A pretty CSS3 popup. <br /> Easily customizable.
+                <span className={styles.emoji}>{emoji}</span>
+                <span>{cityName}</span>
             </Popup>
         </Marker>
     )
 }
 
 Position.propTypes = {
-    position: PropTypes.array,
+    position: PropTypes.object,
 };
 
 export default Map

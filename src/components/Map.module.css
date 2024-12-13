@@ -5,3 +5,23 @@
 :global(.leaflet-container){
     height: 100%;
 }
+
+:global(.leaflet-popup-content-wrapper){
+    background-color: var(--color-dark--0);
+    border-inline-start: 5px solid var(--color-brand--2);
+    border-radius: 4px;
+}
+
+:global(.leaflet-popup-content){
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.map .emoji{
+    font-size: 2.4rem;
+}
