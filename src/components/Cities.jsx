@@ -1,5 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 
+import { NavLink } from 'react-router-dom';
 import styles from './Cities.module.css'
 import PropTypes from 'prop-types'
 const cities = {
@@ -68,9 +69,10 @@ function Cities() {
 }
 
 function City({city}){
-    const {cityName, emoji} = city;
+    const {cityName, emoji,id} = city;
     return (
-        <li className={`flex flex-center-y ${styles.city}`}>
+        <NavLink to={`${id}`}>
+          <li className={`flex flex-center-y ${styles.city}`}>
             <p className="flex flex-center-y">
                 <span className={styles.emoji}>{emoji}</span>
                 <span 
@@ -86,14 +88,17 @@ function City({city}){
             <p className={`${styles.date} flex-1`}>(December 12, 2024)</p>
 
             <button>&times;</button>
-        </li>
+          </li>
+        </NavLink>
+        
     )
 }
 
 City.propTypes = {
     city: PropTypes.shape({
         emoji: PropTypes.string,
-        cityName: PropTypes.string
+        cityName: PropTypes.string,
+        id: PropTypes.string,
     }).isRequired
 };
 

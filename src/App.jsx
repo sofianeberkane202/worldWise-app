@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage"
 import TravelPage from "./pages/TravelPage"
 import Cities from "./components/Cities"
 import Countries from './components/Countries'
+import City from "./components/City"
 
 /* eslint-disable react/react-in-jsx-scope */
 export default function App(){
@@ -18,9 +19,9 @@ export default function App(){
       <Route path="/login" element={<LoginPage/>} />
       <Route path="/travel" element={<TravelPage/>}>
 
-      <Route index element={<Cities/>}/>
-
+        <Route index element={<Cities/>}/>
         <Route path="cities" element={<Cities/>}/>
+        <Route path="cities/:id" element={<City/>} />{/* Dynamic route for city details */}
         <Route path="countries" element={<Countries/>}/>
 
       </Route>
