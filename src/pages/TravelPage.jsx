@@ -2,6 +2,7 @@ import { NavLink, Outlet } from 'react-router-dom'
 import Logo from '../components/Logo'
 import styles from './TravelPage.module.css'
 import { handleActive } from '../helper'
+import Map from '../components/Map'
 /* eslint-disable react/react-in-jsx-scope */
 function TravelPage() {
     return (
@@ -22,10 +23,8 @@ function TravelPage() {
                 <Outlet/>
             </div>
 
-            {/* Map */}
-            <div className={`${styles.map} flex-1`}>
-
-            </div>
+            {/* Map */}          
+            <Map/>
         </div>
     )
 }

@@ -1,0 +1,7 @@
+.map{
+    
+}
+
+:global(.leaflet-container){
+    height: 100%;
+}
