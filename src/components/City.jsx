@@ -4,40 +4,26 @@ import ButtonBack from './ButtonBack';
 import styles from './City.module.css'
 import PropTypes from 'prop-types'
 import { handleDate } from '../helper';
-
-import { URL } from '../config';
-import { fetchData } from '../helper';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useState } from 'react';
+import { useCities } from '../context/ContextCities';
+import Loading from './Loading';
 function City() {
     
+    const {city , isLoading, fetchCityData}= useCities();
+
     const {id} = useParams();
 
-    const [city,setCity]= useState({});
-
     useEffect(function(){
-        async function fetchCityData(){
-            try {
-                const data = await fetchData(`${URL}/${id}`);
-                
-                setCity(data);
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        fetchCityData();
-    },[id])
+        fetchCityData(id);
+    },[id]);
+    
+   if(isLoading) 
+    return <Loading/> 
 
-    const {
-        emoji,
-        cityName,
-        date,
-    } = city;
+    if(!city) return;
 
-    
-    
-    
+    const {emoji, cityName, date} = city;
     return (
         <div className={styles.city}>
             <div className={styles.box}>

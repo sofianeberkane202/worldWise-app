@@ -4,11 +4,30 @@ import { NavLink } from 'react-router-dom';
 import styles from './Cities.module.css'
 import { handleDateWithoutDay } from '../helper';
 import { useCities } from '../context/ContextCities';
+<<<<<<< Updated upstream
+=======
+import Loading from './Loading';
+import { useEffect } from 'react';
+>>>>>>> Stashed changes
 
 
 
 function Cities() {
+<<<<<<< Updated upstream
     const {cities} = useCities();
+=======
+    const {cities,isLoading, fetchCitiesData} = useCities();
+
+    useEffect(function(){
+        fetchCitiesData();
+    }, [])
+
+
+    if(isLoading){
+        return <Loading/>
+    }
+
+>>>>>>> Stashed changes
     return (
         <ul className={`flex flex-col ${styles.cities}`}>
             {cities.map(city => 
