@@ -5,7 +5,6 @@ import { handleActive } from "../helper";
 
 /* eslint-disable react/react-in-jsx-scope */
 function NavBar() {
-    console.log(styles);
 
     return (
         <div className={`${styles.nav} flex flex-between flex-center-y`}>

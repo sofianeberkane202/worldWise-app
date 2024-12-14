@@ -3,12 +3,11 @@
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 import PropTypes from 'prop-types'
 import styles from './Map.module.css'
-import { useContext } from 'react';
-import { ContextCities } from '../App';
+import {useCities } from '../context/ContextCities';
 
 
 function Map() {
-    const {cities}= useContext(ContextCities);
+    const {cities}= useCities();
 
     const position = [51.505, -0.09];
     const positions = cities.map(city => {
