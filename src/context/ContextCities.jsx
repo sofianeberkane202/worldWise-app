@@ -1,23 +1,37 @@
 /* eslint-disable react/react-in-jsx-scope */
 import PropTypes from 'prop-types'
 
-import { createContext, useContext, useEffect, useState } from "react"
+import { createContext, useContext, useEffect, useReducer } from "react"
 import { URL } from '../config';
 import { fetchData } from '../helper';
 
+const initialReducer = {
+  cities: [],
+  isLoading: false,
+  error: null,
+}
+
+function reducer(state, action) {
+  switch(action.type){
+    case 'loading': return {...state, isLoading: true};
+    case 'success': return {...state, isLoading: false, cities: action.payload};
+    case 'error': return {...state, isLoading: false, error: action.payload};
+  }
+}
+
 const ContextCities = createContext();
 function ContextCitiesProvider({children}) {
-  
-    const [cities, setCities]= useState([]);
+
+    const [{cities, isLoading ,error},dispatch]= useReducer(reducer,initialReducer);
 
 
     useEffect(function(){
       async function fetchCitiesData(){
         try {
-          
+          dispatch({type: 'loading'});
           const data = await fetchData(URL);
           
-          setCities(data);
+          dispatch({type: "success", payload: data});
         } catch (error) {
           console.log(error);
         }
@@ -25,11 +39,13 @@ function ContextCitiesProvider({children}) {
   
       fetchCitiesData();
     },[]);
-
+    
     return (
         <ContextCities.Provider
         value={{
             cities,
+            isLoading,
+            error
         }}
         >
             {children}

@@ -4,11 +4,17 @@ import { NavLink } from 'react-router-dom';
 import styles from './Cities.module.css'
 import { handleDateWithoutDay } from '../helper';
 import { useCities } from '../context/ContextCities';
+import Loading from './Loading';
 
 
 
 function Cities() {
-    const {cities} = useCities();
+    const {cities,isLoading} = useCities();
+    // const isLoading = true;
+    if(isLoading){
+        return <Loading/>
+    }
+
     return (
         <ul className={`flex flex-col ${styles.cities}`}>
             {cities.map(city => 
