@@ -1,33 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 import PropTypes from 'prop-types'
 
-<<<<<<< Updated upstream
-import { createContext, useContext, useEffect, useState } from "react"
-import { URL } from '../config';
-import { fetchData } from '../helper';
-
-const ContextCities = createContext();
-function ContextCitiesProvider({children}) {
-  
-    const [cities, setCities]= useState([]);
-
-
-    useEffect(function(){
-      async function fetchCitiesData(){
-        try {
-          
-          const data = await fetchData(URL);
-          
-          setCities(data);
-        } catch (error) {
-          console.log(error);
-        }
-      }
-  
-      fetchCitiesData();
-    },[]);
-
-=======
 import { createContext, useContext, useReducer } from "react"
 import { URL } from '../config';
 import { fetchData } from '../helper';
@@ -79,19 +52,15 @@ function ContextCitiesProvider({children}) {
   }
 
     
->>>>>>> Stashed changes
     return (
         <ContextCities.Provider
         value={{
             cities,
-<<<<<<< Updated upstream
-=======
             city,
             isLoading,
             error,
             fetchCitiesData,
             fetchCityData
->>>>>>> Stashed changes
         }}
         >
             {children}
