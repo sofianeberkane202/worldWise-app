@@ -8,7 +8,7 @@
     gap: 16px;
 }
 
-.form input, .form textarea{
+.form input, .form textarea {
     background-color: var(--color-light--3);
     color: var(--color-dark--2);
     font-size: 1.6rem;
@@ -16,13 +16,17 @@
     border-radius: 8px;
 }
 
-.form div{
+.form div:not(:last-child){
     display: grid;
     gap: 8px;
 }
 
 .form .city-name-field{
     position: relative;
+}
+
+.form .city-name-field input{
+    width: 100%;
 }
 
 .form .emoji{

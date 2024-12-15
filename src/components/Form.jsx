@@ -1,15 +1,53 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { useSearchParams } from 'react-router-dom'
 import styles from './Form.module.css'
+import { useEffect, useState } from 'react';
+import { fetchData } from '../helper';
+import Button from './Button';
+import ButtonBack from './ButtonBack';
+import Flatpickr from "react-flatpickr";
+import "flatpickr/dist/flatpickr.css";
+
+
 
 function Form() {
+
+    const [positionInfo, setPositionInfo]= useState(null);
+    const [date, setDate] = useState(new Date());
+    const [note, setNote]= useState('');
+    const [cityName, setCityName]= useState('')
+
 
     // eslint-disable-next-line no-unused-vars
     const [searchPosition, setSearchPosition]= useSearchParams({});
     const lat = searchPosition.get('lat');
     const lng = searchPosition.get('lng');
 
-    console.log(lat, lng);
+    function getCountryFlagEmoji(countryCode) {
+        if(!countryCode) return;
+        const codePoints = countryCode
+            .toUpperCase()
+            .split('')
+            .map(char => 127397 + char.charCodeAt(0)); // 127397 is the offset for 'A'
+        return String.fromCodePoint(...codePoints);
+    }
+
+    useEffect(function(){
+        async function fetchPositionInfo(){
+            const url= `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`
+            try {
+                const data = await fetchData(url);
+  
+                setPositionInfo(data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        if(lat && lng) fetchPositionInfo();
+    },[lat,lng]);
+
+    if(!positionInfo) return;
 
     return (
         <form className={styles.form}>
@@ -17,21 +55,47 @@ function Form() {
             <div className={styles.name}>
                 <label className={styles.title} htmlFor='city-name'>City name</label>
                 <div className={styles['city-name-field']}>
-                    <input type='text' id='city-name' value={'sofiane'}/>
-                    <span className={styles.emoji}>🇫🇷</span>
+                    <input 
+                    type='text' 
+                    id='city-name' 
+                    value={
+                        cityName || 
+                        positionInfo?.address?.city ||
+                        positionInfo?.address?.village ||
+                        positionInfo?.address?.state ||
+                        positionInfo?.address?.locality ||
+                        'Unknown Location'}
+                    onChange={(e) => setCityName(e.target.value)}
+                    />
+
+                    <span className={styles.emoji}>
+                        {getCountryFlagEmoji(positionInfo.address.country_code)}
+                    </span>
                 </div>
             </div>
 
             {/* date block */}
             <div>
                 <label className={styles.title} htmlFor='date'>When did you go to Ahuille?</label>
-                <input type='text' id='date' value={'sofiane'}/>
+                {/* <input type='text' id='date' value={'sofiane'}/> */}
+
+                <Flatpickr
+                id="date"
+                value={date}
+                onChange={(selectedDates) => setDate(selectedDates[0])}
+                options={{ dateFormat: "d/m/Y" }}
+            />
             </div>
 
             {/* note block */}
             <div>
                 <label className={styles.title} htmlFor='note'>Notes about your trip to Ahuille</label>
-                <textarea type='text' id='note' value={'sofiane'}/>
+                <textarea type='text' id='note' value={note} onChange={(e) => setNote(e.target.value)}/>
+            </div>
+
+            <div className='flex flex-between '>
+                <Button type={'primary'}>Add</Button> 
+                <ButtonBack/>
             </div>
 
         </form>
