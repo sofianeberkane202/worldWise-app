@@ -1,7 +1,16 @@
 /* eslint-disable react/react-in-jsx-scope */
+import { useSearchParams } from 'react-router-dom'
 import styles from './Form.module.css'
 
 function Form() {
+
+    // eslint-disable-next-line no-unused-vars
+    const [searchPosition, setSearchPosition]= useSearchParams({});
+    const lat = searchPosition.get('lat');
+    const lng = searchPosition.get('lng');
+
+    console.log(lat, lng);
+
     return (
         <form className={styles.form}>
             {/* city name block */}
