@@ -10,12 +10,13 @@ import { useCities } from '../context/ContextCities';
 import Loading from './Loading';
 function City() {
     
-    const {city , isLoading, fetchCityData}= useCities();
+    const {city , isLoading, fetchCityData, handleActiveCity}= useCities();
 
     const {id} = useParams();
 
     useEffect(function(){
         fetchCityData(id);
+        handleActiveCity(id);
     },[id]);
     
    if(isLoading) 

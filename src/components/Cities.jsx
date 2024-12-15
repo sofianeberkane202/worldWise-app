@@ -6,6 +6,8 @@ import { handleDateWithoutDay } from '../helper';
 import { useCities } from '../context/ContextCities';
 import Loading from './Loading';
 
+import { handleActive } from '../helper';
+
 
 
 function Cities() {
@@ -28,27 +30,33 @@ function Cities() {
 }
 
 function City({city}){
+    const {currentActiveCity}= useCities();
     const {cityName, emoji,id, position:{lat,lng}, date} = city;
     return (
-        <NavLink to={`${id}?lat=${lat}&lng=${lng}`}>
-          <li className={`flex flex-center-y ${styles.city}`}>
-            <p className="flex flex-center-y">
-                <span className={styles.emoji}>{emoji}</span>
-                <span 
-                className={styles['city-name']}
-                style={cityName.length > 10 ? {fontSize:'1.2rem'} : 
-                {fontSize:'1.6rem'}
-                }
-                >
-                    {cityName}
-                </span>
-            </p>
+          <li>
+            <NavLink
+            to={`${id}?lat=${lat}&lng=${lng}`}
+            className={`${handleActive(currentActiveCity === id,styles)} flex flex-center-y ${styles.city}`
+            }
+            >
+                <p className="flex flex-center-y">
+                    <span className={styles.emoji}>{emoji}</span>
+                    <span 
+                    className={styles['city-name']}
+                    style={cityName.length > 10 ? {fontSize:'1.2rem'} : 
+                    {fontSize:'1.6rem'}
+                    }
+                    >
+                        {cityName}
+                    </span>
+                </p>
 
-            <p className={`${styles.date} flex-1`}>({handleDateWithoutDay(date)})</p>
+                <p className={`${styles.date} flex-1`}>({handleDateWithoutDay(date)})</p>
 
-            <button>&times;</button>
+                <button>&times;</button>
+            </NavLink>
           </li>
-        </NavLink>
+        
         
     )
 }

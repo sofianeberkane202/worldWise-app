@@ -8,6 +8,7 @@ import { fetchData } from '../helper';
 const initialReducer = {
   cities: [],
   city: {},
+  currentActiveCity: null,
   isLoading: false,
   error: null,
 }
@@ -18,7 +19,15 @@ function reducer(state, action) {
     case 'GET_CITIES_SECCESS': return {...state, isLoading: false, cities: action.payload};
     case 'GET_CITY_SECCESS': return {...state, isLoading: false, city: action.payload};
 
-    case 'POST_CITY_SECCESS': return {...state, isLoading: false, cities: action.payload};
+    case 'POST_CITY_SECCESS': 
+      return {
+        ...state,
+        isLoading: false,
+        cities: action.payload,
+        currentActiveCity: action.payload[0].id,
+      };
+
+    case 'acitivateCity': return {...state, currentActiveCity: action.payload}
     case 'error': return {...state, isLoading: false, error: action.payload};
   }
 }
@@ -26,7 +35,7 @@ function reducer(state, action) {
 const ContextCities = createContext();
 function ContextCitiesProvider({children}) {
 
-    const [{cities,city, isLoading ,error},dispatch]= 
+    const [{cities,city, isLoading ,error,currentActiveCity},dispatch]= 
       useReducer(reducer,initialReducer);
 
     // getCities Data 
@@ -80,6 +89,11 @@ function ContextCitiesProvider({children}) {
     }
   }
     
+
+  function handleActiveCity(id){
+    dispatch({type: "acitivateCity", payload: id})
+  }
+
     return (
         <ContextCities.Provider
         value={{
@@ -87,8 +101,10 @@ function ContextCitiesProvider({children}) {
             city,
             isLoading,
             error,
+            currentActiveCity,
             fetchCityData,
-            postNewCity
+            postNewCity,
+            handleActiveCity
         }}
         >
             {children}
@@ -104,6 +120,8 @@ function useCities(){
 
   return context
 }
+
+
 
 export { ContextCitiesProvider , useCities};
 

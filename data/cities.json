@@ -143,6 +143,42 @@
         "lat": "41.49851693318449",
         "lng": "-117.42187500000001"
       }
+    },
+    {
+      "id": "1053",
+      "cityName": "London",
+      "country": "United Kingdom",
+      "emoji": "🇬🇧",
+      "date": "2024-12-15T19:03:32.169Z",
+      "note": "dfvresdgvuet",
+      "position": {
+        "lat": "51.52413471877112",
+        "lng": "-0.08943557739257814"
+      }
+    },
+    {
+      "id": "1696",
+      "cityName": "District of Al-Jufra",
+      "country": "Libya",
+      "emoji": "🇱🇾",
+      "date": "2024-12-15T19:20:21.182Z",
+      "note": "fdv dfgvk",
+      "position": {
+        "lat": "29.05983414242812",
+        "lng": "17.753906250000004"
+      }
+    },
+    {
+      "id": "ef43",
+      "cityName": "Borkou",
+      "country": "Chad",
+      "emoji": "🇹🇩",
+      "date": "2024-12-15T19:25:17.129Z",
+      "note": "fdvhfdvds",
+      "position": {
+        "lat": "16.947429414192555",
+        "lng": "18.281250000000004"
+      }
     }
   ]
 }
