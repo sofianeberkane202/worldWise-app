@@ -51,6 +51,24 @@ function ContextCitiesProvider({children}) {
       }
   }
 
+  // Post newCity
+
+  async function postNewCity(newCity){
+    try {
+      const response = await fetch(`http://localhost:8000/cities`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newCity),
+      })
+
+      const data = await response.json();
+      console.log("Response: ", data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
     
     return (
         <ContextCities.Provider
@@ -60,7 +78,8 @@ function ContextCitiesProvider({children}) {
             isLoading,
             error,
             fetchCitiesData,
-            fetchCityData
+            fetchCityData,
+            postNewCity
         }}
         >
             {children}
