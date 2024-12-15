@@ -11,6 +11,7 @@ function Map() {
     const {cities}= useCities();
     // eslint-disable-next-line no-unused-vars
     const [positionClick, setPositionClick]= useState();
+    console.log(positionClick);
 
     const position = [51.505, -0.09];
 
@@ -22,12 +23,6 @@ function Map() {
             emoji: city.emoji,
         }
     });
-
-    function ClickHandler(){
-        useMapEvent({
-            click: (e) => setPositionClick(e.latlng)
-        })
-    }
 
     return (
         <div className={`${styles.map} flex-1`}>
@@ -41,7 +36,7 @@ function Map() {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
 
-                <ClickHandler/>
+                <ClickHandler onPositionClick={setPositionClick}/>
 
                 <Marker position={position}>
                 <Popup>
@@ -55,6 +50,12 @@ function Map() {
             
         </div>
     )
+}
+
+function ClickHandler({onPositionClick}){
+    useMapEvent({
+        click: (e) => onPositionClick({lat: e.latlng.lat, lng: e.latlng.lng})
+    })
 }
 
 function Position({position}){
