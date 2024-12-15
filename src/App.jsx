@@ -7,6 +7,7 @@ import TravelPage from "./pages/TravelPage"
 import Cities from "./components/Cities"
 import Countries from './components/Countries'
 import City from "./components/City"
+import Form from "./components/Form"
 
 import {ContextCitiesProvider} from "./context/ContextCities"
 
@@ -35,6 +36,8 @@ export default function App(){
             <Route path="cities" element={<Cities />}/>
             <Route path="cities/:id" element={<City/>} />{/* Dynamic route for city details */}
             <Route path="countries" element={<Countries />}/>
+
+            <Route path="form" element={<Form/>}/>
     
           </Route>
         </Routes>  

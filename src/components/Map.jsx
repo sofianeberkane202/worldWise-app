@@ -4,14 +4,23 @@ import { MapContainer, Marker, Popup, TileLayer, useMapEvent } from 'react-leafl
 import PropTypes from 'prop-types'
 import styles from './Map.module.css'
 import {useCities } from '../context/ContextCities';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 
 function Map() {
     const {cities}= useCities();
-    // eslint-disable-next-line no-unused-vars
     const [positionClick, setPositionClick]= useState();
-    console.log(positionClick);
+
+    // eslint-disable-next-line no-unused-vars
+    const [searchForm, setSearchForm] = useSearchParams('');
+    const navigate =  useNavigate();
+    
+    useEffect(function(){
+        const {lat, lng}= positionClick;
+        navigate('form');
+        setSearchForm(`lat=${lat}&lng=${lng}`);
+    }, [positionClick]);
 
     const position = [51.505, -0.09];
 
