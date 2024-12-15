@@ -5,21 +5,19 @@ import PropTypes from 'prop-types'
 import styles from './Map.module.css'
 import {useCities } from '../context/ContextCities';
 import { useEffect, useState } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
 
 function Map() {
     const {cities}= useCities();
     const [positionClick, setPositionClick]= useState();
-
-    // eslint-disable-next-line no-unused-vars
-    const [searchForm, setSearchForm] = useSearchParams('');
+    
     const navigate =  useNavigate();
     
     useEffect(function(){
+        if(!positionClick) return;
         const {lat, lng}= positionClick;
-        navigate('form');
-        setSearchForm(`lat=${lat}&lng=${lng}`);
+        navigate(`form?lat=${lat}&lng=${lng}`);
     }, [positionClick]);
 
     const position = [51.505, -0.09];

@@ -31,7 +31,7 @@ a{
 
 
 
-button,input{
+button,input,textarea{
     background: none;
     color: inherit;
     font: inherit;
