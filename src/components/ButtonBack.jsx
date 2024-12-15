@@ -7,7 +7,7 @@ function ButtonBack() {
     return (
         <button 
         className={`btn ${styles.back}`}
-        onClick={() => navigate(-1)}
+        onClick={(e) => {e.preventDefault(),navigate(-1)}}
         >
             &larr; Back
         </button>

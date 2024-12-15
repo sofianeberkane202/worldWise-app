@@ -17,7 +17,7 @@ function Map() {
     useEffect(function(){
         if(!positionClick) return;
         const {lat, lng}= positionClick;
-        navigate(`form?lat=${lat}&lng=${lng}`);
+        navigate(`form?lat=${lat}&lng=${lng}`,{replace:true});
     }, [positionClick]);
 
     const position = [51.505, -0.09];
