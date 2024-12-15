@@ -1,6 +1,8 @@
 .cities{
     gap: 12px;
     width: 90%;
+    max-height: 400px;
+    overflow-y: auto;
 }
 
 .cities .city{

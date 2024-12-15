@@ -47,6 +47,102 @@
         "lat": "53.79481713296426",
         "lng": "23.811629264193233"
       }
+    },
+    {
+      "id": "399c",
+      "cityName": "Douar Sidi Ali",
+      "country": "Algeria",
+      "emoji": "🇩🇿",
+      "date": "2024-12-15T17:32:09.207Z",
+      "note": "gooooooood!!!!!!",
+      "position": {
+        "lat": "36.341176590853195",
+        "lng": "2.78549519885714"
+      }
+    },
+    {
+      "id": "d357",
+      "cityName": "Unknown Location",
+      "country": "Ireland",
+      "emoji": "🇮🇪",
+      "date": "2024-12-15T17:33:30.692Z",
+      "note": "i'm here now ",
+      "position": {
+        "lat": "53.60030120438251",
+        "lng": "-8.19392636042205"
+      }
+    },
+    {
+      "id": "744f",
+      "cityName": "Magán",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2024-12-15T17:33:57.787Z",
+      "note": "spainnnnnn!!!!",
+      "position": {
+        "lat": "39.969602414562566",
+        "lng": "-3.9550781250000004"
+      }
+    },
+    {
+      "id": "647e",
+      "cityName": "London",
+      "country": "United Kingdom",
+      "emoji": "🇬🇧",
+      "date": "2024-12-15T17:45:42.881Z",
+      "note": "",
+      "position": {
+        "lat": "51.52840907544596",
+        "lng": "-0.07106781005859376"
+      }
+    },
+    {
+      "id": "acf2",
+      "cityName": "Al-Qassim Province",
+      "country": "Saudi Arabia",
+      "emoji": "🇸🇦",
+      "date": "2024-12-15T17:48:47.892Z",
+      "note": "fdhvdfv udysg idfyg",
+      "position": {
+        "lat": "26.412557376083335",
+        "lng": "43.59375000000001"
+      }
+    },
+    {
+      "id": "82a7",
+      "cityName": "Maholi",
+      "country": "India",
+      "emoji": "🇮🇳",
+      "date": "2024-12-15T17:49:49.011Z",
+      "note": "dvjhbdfjvh",
+      "position": {
+        "lat": "23.54327847930078",
+        "lng": "77.34375000000001"
+      }
+    },
+    {
+      "id": "7bff",
+      "cityName": "Wyoming",
+      "country": "United States",
+      "emoji": "🇺🇸",
+      "date": "2024-12-15T17:50:32.570Z",
+      "note": "fdjvdytvdst",
+      "position": {
+        "lat": "43.05992220835357",
+        "lng": "-106.17187500000001"
+      }
+    },
+    {
+      "id": "0234",
+      "cityName": "Nevada",
+      "country": "United States",
+      "emoji": "🇺🇸",
+      "date": "2024-12-15T18:50:35.520Z",
+      "note": "it's nivada baby!!!",
+      "position": {
+        "lat": "41.49851693318449",
+        "lng": "-117.42187500000001"
+      }
     }
   ]
 }

@@ -1,7 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import PropTypes from 'prop-types'
 
-import { createContext, useContext, useReducer } from "react"
+import { createContext, useContext, useEffect, useReducer } from "react"
 import { URL } from '../config';
 import { fetchData } from '../helper';
 
@@ -17,6 +17,8 @@ function reducer(state, action) {
     case 'loading': return {...state, isLoading: true};
     case 'GET_CITIES_SECCESS': return {...state, isLoading: false, cities: action.payload};
     case 'GET_CITY_SECCESS': return {...state, isLoading: false, city: action.payload};
+
+    case 'POST_CITY_SECCESS': return {...state, isLoading: false, cities: action.payload};
     case 'error': return {...state, isLoading: false, error: action.payload};
   }
 }
@@ -28,16 +30,21 @@ function ContextCitiesProvider({children}) {
       useReducer(reducer,initialReducer);
 
     // getCities Data 
-    async function fetchCitiesData(){
-      dispatch({type: 'loading'});
-      try {
-        const data = await fetchData(URL);
-        
-        dispatch({type: "GET_CITIES_SECCESS", payload: data});
-      } catch (error) {
-        console.log(error);
+    useEffect(function(){
+      async function fetchCitiesData(){
+        dispatch({type: 'loading'});
+        try {
+          const data = await fetchData(URL);
+          
+          dispatch({type: "GET_CITIES_SECCESS", payload: data});
+        } catch (error) {
+          console.log(error);
+        }
       }
-    }
+
+      fetchCitiesData();
+    },[]);
+    
 
     // get city Data
     async function fetchCityData(id){
@@ -64,6 +71,9 @@ function ContextCitiesProvider({children}) {
       })
 
       const data = await response.json();
+
+      dispatch({type: 'POST_CITY_SECCESS', payload: [data, ...cities]})
+
       console.log("Response: ", data);
     } catch (error) {
       console.log(error);
@@ -77,7 +87,6 @@ function ContextCitiesProvider({children}) {
             city,
             isLoading,
             error,
-            fetchCitiesData,
             fetchCityData,
             postNewCity
         }}

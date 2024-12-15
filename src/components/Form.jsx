@@ -1,5 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import styles from './Form.module.css'
 import { useEffect, useState } from 'react';
 import { fetchData } from '../helper';
@@ -7,15 +7,21 @@ import Button from './Button';
 import ButtonBack from './ButtonBack';
 import Flatpickr from "react-flatpickr";
 import "flatpickr/dist/flatpickr.css";
+import { useCities } from '../context/ContextCities';
 
 
 
 function Form() {
 
-    const [positionInfo, setPositionInfo]= useState(null);
+    const navigate = useNavigate();
+
     const [date, setDate] = useState(new Date());
     const [note, setNote]= useState('');
     const [cityName, setCityName]= useState('')
+    const [emoji, setEmoji]= useState('');
+    const [country,setCountry]= useState('');
+
+    const {postNewCity}= useCities();
 
 
     // eslint-disable-next-line no-unused-vars
@@ -37,8 +43,13 @@ function Form() {
             const url= `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`
             try {
                 const data = await fetchData(url);
-  
-                setPositionInfo(data);
+
+                const {city,country,country_code,state,village,locality} = data.address;
+
+                setCityName(city || village || state || locality || 'Unknown Location');
+                setEmoji(getCountryFlagEmoji(country_code));
+                setCountry(country);
+                
             } catch (error) {
                 console.log(error);
             }
@@ -47,7 +58,17 @@ function Form() {
         if(lat && lng) fetchPositionInfo();
     },[lat,lng]);
 
-    if(!positionInfo) return;
+    const newCity= {
+        cityName,
+        country,
+        emoji,
+        date: new Date().toISOString(),
+        note,
+        position: {
+          lat,
+          lng
+        }
+      }
 
     return (
         <form className={styles.form}>
@@ -58,18 +79,12 @@ function Form() {
                     <input 
                     type='text' 
                     id='city-name' 
-                    value={
-                        cityName || 
-                        positionInfo?.address?.city ||
-                        positionInfo?.address?.village ||
-                        positionInfo?.address?.state ||
-                        positionInfo?.address?.locality ||
-                        'Unknown Location'}
+                    value={cityName}
                     onChange={(e) => setCityName(e.target.value)}
                     />
 
                     <span className={styles.emoji}>
-                        {getCountryFlagEmoji(positionInfo.address.country_code)}
+                        {emoji}
                     </span>
                 </div>
             </div>
@@ -94,7 +109,16 @@ function Form() {
             </div>
 
             <div className='flex flex-between '>
-                <Button type={'primary'}>Add</Button> 
+                <Button
+                type={'primary'}
+                handleclick={async (e) =>{ 
+                    e.preventDefault();
+                    await postNewCity(newCity)
+                    navigate('/travel/cities');
+                }}
+                >
+                    Add
+                </Button> 
                 <ButtonBack/>
             </div>
 

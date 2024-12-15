@@ -5,16 +5,11 @@ import styles from './Cities.module.css'
 import { handleDateWithoutDay } from '../helper';
 import { useCities } from '../context/ContextCities';
 import Loading from './Loading';
-import { useEffect } from 'react';
 
 
 
 function Cities() {
-    const {cities,isLoading, fetchCitiesData} = useCities();
-
-    useEffect(function(){
-        fetchCitiesData();
-    }, [])
+    const {cities,isLoading} = useCities();
 
 
     if(isLoading){
