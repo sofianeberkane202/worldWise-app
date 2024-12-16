@@ -94,6 +94,8 @@ function ContextCitiesProvider({children}) {
     dispatch({type: "acitivateCity", payload: id})
   }
 
+
+
     return (
         <ContextCities.Provider
         value={{
@@ -104,7 +106,7 @@ function ContextCitiesProvider({children}) {
             currentActiveCity,
             fetchCityData,
             postNewCity,
-            handleActiveCity
+            handleActiveCity,
         }}
         >
             {children}

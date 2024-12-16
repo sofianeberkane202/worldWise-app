@@ -18,6 +18,7 @@ export default function App(){
 
   return (
    <BrowserRouter>
+   <ContextCitiesProvider>
         <Routes>
           <Route path="/" element= {<HomePage/>} />
           <Route path="/product" element={<ProductsPage/>}/>
@@ -27,9 +28,9 @@ export default function App(){
           path="/travel"
           
           element={
-          <ContextCitiesProvider>
+          
             <TravelPage/>
-          </ContextCitiesProvider>
+          
         }>
 
             <Route index element={<Cities />}/>
@@ -40,7 +41,8 @@ export default function App(){
             <Route path="form" element={<Form/>}/>
     
           </Route>
-        </Routes>  
+        </Routes> 
+        </ContextCitiesProvider> 
    </BrowserRouter> 
   )
 }

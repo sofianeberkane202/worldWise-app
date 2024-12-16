@@ -32,6 +32,7 @@ function Cities() {
 function City({city}){
     const {currentActiveCity}= useCities();
     const {cityName, emoji,id, position:{lat,lng}, date} = city;
+    
     return (
           <li>
             <NavLink
