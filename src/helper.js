@@ -1,5 +1,4 @@
 export function handleActive(isActive, styles){
-    console.log(isActive);
     return isActive ? styles.active : '';
 }
 

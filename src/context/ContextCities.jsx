@@ -54,7 +54,7 @@ function ContextCitiesProvider({children}) {
       fetchCitiesData();
     },[]);
     
-
+    
     // get city Data
     async function fetchCityData(id){
       dispatch({type: 'loading'});
@@ -82,8 +82,6 @@ function ContextCitiesProvider({children}) {
       const data = await response.json();
 
       dispatch({type: 'POST_CITY_SECCESS', payload: [data, ...cities]})
-
-      console.log("Response: ", data);
     } catch (error) {
       console.log(error);
     }
